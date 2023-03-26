@@ -33,20 +33,22 @@ class Shadow(arcade.Sprite):
         # set initial values
         self.offset_x = 40
         self.offset_y = 40
+        self.adjust_scale = 0
         self.z = player.z - 1
 
     def update(self):
         self.center_x = self.player.center_x - self.offset_x    # x position is tied to player x position
         self.center_y = (self.player.center_y * 1.5) + self.offset_y    # y position is tied to player y position
-        self.scale = 1 + (self.center_y / 200)   # increase scale based on y position
+        self.scale = 1 + self.adjust_scale
         self.alpha = 200 - self.center_y * 0.4  # decrease opacity based on y position
+        self.height = (32 * self.scale) + (self.player.center_y * 0.25)  # increase height based on y position
         
 class ShadowRay(arcade.Sprite):
     def __init__(self, shadow):
         super().__init__('sprites/shadow.png')
         self.shadow = shadow
         # set initial values
-        self.move_speed = -8
+        self.move_speed = -15
         self.scale = 0.5
         self.z = shadow.z
 
@@ -58,12 +60,12 @@ class ShadowRay(arcade.Sprite):
             self.bottom = screen_height
         self.alpha = 200 - self.center_y * 0.4  # decrease opacity based on y position
         
-class Hurdle(arcade.Sprite):
+class Energy(arcade.Sprite):
     def __init__(self, player):
-        super().__init__('sprites/hurdle.png')
+        super().__init__('sprites/energy.png')
         # set initial values
-        self.move_speed = -8
-        self.scale = 0.75
+        self.move_speed = -10
+        self.scale = 0.3
         self.z = player.z
 
     def update(self):
@@ -71,8 +73,7 @@ class Hurdle(arcade.Sprite):
         # set respawn logic
         if self.right < 0:
             self.left = screen_width
-            self.height = random.randint(32, 132)
-            self.bottom = 0
+            self.bottom = random.randint(0, screen_height) / 3
 
 class MyGame(arcade.Window):
     def __init__(self, width, height, title):
@@ -80,7 +81,7 @@ class MyGame(arcade.Window):
         self.set_mouse_visible(False)
         self.set_location(int((arcade.get_display_size()[0] - screen_width) / 2),
                            int((arcade.get_display_size()[1] - screen_height) / 2))
-        arcade.set_background_color(arcade.color.PERU)
+        arcade.set_background_color(arcade.color.SIENNA)
         self.gravity = 0.3
         self.setup_game()
         
@@ -88,7 +89,7 @@ class MyGame(arcade.Window):
         self.game_over = False
         self.score = 0
         self.player = Player()
-        self.hurdle = Hurdle(self.player)
+        self.energy = Energy(self.player)
         self.shadow = Shadow(self.player)
         self.shadow_ray = ShadowRay(self.shadow)
         
@@ -98,7 +99,7 @@ class MyGame(arcade.Window):
             self.shadow_ray.draw()
             self.shadow.draw()
             self.player.draw()
-            self.hurdle.draw()
+            self.energy.draw()
             arcade.draw_text(f'Score: {int(self.score)}', 10, screen_height - 20, arcade.color.BLACK, 14)
         else:
             arcade.draw_text('GAME OVER', 0, screen_height // 2,
@@ -110,14 +111,22 @@ class MyGame(arcade.Window):
 
     def update(self, delta_time):
         self.player.update()
-        self.hurdle.update()
+        self.energy.update()
         self.shadow.update()
         self.shadow_ray.update()
         self.player.change_y -= self.gravity
         if not self.game_over:
             self.score += 1 / 30
-        # check for game over collision
-        if arcade.check_for_collision(self.shadow, self.shadow_ray) or arcade.check_for_collision(self.player, self.hurdle):
+        # check for collisions
+        if arcade.check_for_collision(self.shadow, self.shadow_ray):
+            self.shadow.adjust_scale -= 0.1
+            self.shadow_ray.center_x = random.randint(0, screen_width)
+            self.shadow_ray.bottom = screen_height
+        if arcade.check_for_collision(self.player, self.energy):
+            self.shadow.adjust_scale += 0.1
+            self.energy.left = screen_width
+            self.energy.bottom = random.randint(0, screen_height) / 3
+        if self.shadow.scale <= 0:
             self.game_over = True
 
     def on_key_press(self, key, modifiers):
@@ -135,7 +144,7 @@ class MyGame(arcade.Window):
             self.player.change_x = 0
 
 def main():
-    game = MyGame(screen_width, screen_height, 'Shadow Jumper v0.2.0')
+    game = MyGame(screen_width, screen_height, 'Shadow Embiggen v0.2.0')
     arcade.run()
 
 if __name__ == '__main__':
