@@ -1,5 +1,3 @@
-# Development Log
-
 Changelog
 =
 v0.1.0 (03-26-23)
