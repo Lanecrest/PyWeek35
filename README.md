@@ -1,5 +1,11 @@
 Changelog
 =
+
+v0.2.0 (03-26-23)
+-
+-Added energy and shadowray cubes, that will increase or decrease the shadow size respectively. The player interacts with energy and the shadow with shadowrays.
+
+
 v0.1.0 (03-26-23)
 -
 -Initial release, simple script using Arcade to move a sprite left to right and jumping
