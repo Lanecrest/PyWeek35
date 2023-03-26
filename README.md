@@ -2,9 +2,9 @@ Changelog
 =
 v0.1.0 (03-26-23)
 -
--Initial release, simple script using Arcade to move a sprite left to right with a jump function.
+-Initial release, simple script using Arcade to move a sprite left to right and jumping
 
--Logic for the player's shadow is implemented. It follows the player position and gets bigger/smaller, lighter/darker based on the players Y position.
+-Player's shadow is implemented. It follows the player position and gets bigger/smaller, lighter/darker based on the players Y position.
 
 
 Road Map
