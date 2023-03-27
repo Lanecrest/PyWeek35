@@ -1,8 +1,12 @@
 # Gameplay
-Collect the green energy cubes to embiggen your shadow. Avoid the letting your shadow hit the shadow rays or it will shrink! If your shadow disappears, you lose :( Currently, your score is based on how long you've been playing before a game over.
+Collect the radiation cubes to embiggen your shadow! Avoid the letting your shadow hit the shadow rays or it will shrink! If your shadow disappears or time runs out, you lose! Embiggen your shadow to great size to win!
 
 Changelog
 =
+
+v0.2.1 (03-26-23)
+-
+-Scoring system now implemented. You want to embiggen your shadow to a certain size to win! If time runs out, your shadow will leave, and if it shrinks to much from the shadow rays it will die!
 
 v0.2.0 (03-26-23)
 -
