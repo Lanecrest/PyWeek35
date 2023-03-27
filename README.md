@@ -22,11 +22,13 @@ v0.1.0 (03-26-23)
 
 Road Map
 =
-Basic gameplay is implemented. Scoring will be changed so the game ends when your score gets to a certain size (you lose if it disappears). The score is based on how quickly you get it to the target size. The shadow rays will also get bigger as the game goes on.
+Core gameplay functionality is implemented. Next up I want to make a proper sprite for the player/shadow (the radition energy and shadow rays will probably just stay cube-like objects).
 
-Time permitting, the sprites will be something fancier than solid squares, but I am a programmer first and an artist, last, after everything else :D
+After that, I want to make the controls a bit tighter, maybe make jumping be linked to how long you hold space, or improve collision a bit.
+
+I also need to make a title screen that says how to play!
 
 
 [Screenshots](/screenshots)
 =
-![Alt text](/screenshots/v0-2-0_1.png?raw=true "Gameplay")
+![Alt text](/screenshots/v0-2-1_1.png?raw=true "Gameplay")
