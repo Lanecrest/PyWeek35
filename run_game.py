@@ -49,9 +49,10 @@ class ShadowRay(arcade.Sprite):
         self.shadow = shadow
         # set initial values
         self.move_speed = -15
-        self.scale = 1
         self.alpha = 200
         self.z = shadow.z
+        self.height = 64
+        self.width = 16
 
     def update(self):
         self.center_y += self.move_speed
