@@ -1,3 +1,6 @@
+# Gameplay
+Collect the green energy cubes to embiggen your shadow. Avoid the letting your shadow hit the shadow rays or it will shrink! If your shadow disappears, you lose :( Currently, your score is based on how long you've been playing before a game over.
+
 Changelog
 =
 
@@ -15,7 +18,7 @@ v0.1.0 (03-26-23)
 
 Road Map
 =
-The plan is to make a game where you have to pay attention to both the player sprite and the shadow sprite. Currently the plan is to have one object avoid obstacles and the other object collect items, but that may change as development progresses.
+Basic gameplay is implemented. Scoring will be changed so the game ends when your score gets to a certain size (you lose if it disappears). The score is based on how quickly you get it to the target size. The shadow rays will also get bigger as the game goes on.
 
 Time permitting, the sprites will be something fancier than solid squares, but I am a programmer first and an artist, last, after everything else :D
 
