@@ -22,5 +22,4 @@ Time permitting, the sprites will be something fancier than solid squares, but I
 
 [Screenshots](/screenshots)
 =
-![Alt text](/screenshots/v0-1-0_1.png?raw=true "Gameplay")
-![Alt text](/screenshots/v0-1-0_2.png?raw=true "Gameplay")
+![Alt text](/screenshots/v0-2-0_1.png?raw=true "Gameplay")
