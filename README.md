@@ -1,8 +1,14 @@
 # Gameplay
-Collect the radiation cubes to embiggen your shadow! Avoid the letting your shadow hit the shadow rays or it will shrink! If your shadow disappears or time runs out, you lose! Embiggen your shadow to great size to win!
+Your shadow is embiggening! Let it grow to a cromulent size. The universe has sent neutrinos to try to blast your shadow for getting out of control. Use your special energy gun to blast them away so your shadow can continue to embiggen!
 
 Changelog
 =
+
+v0.3.0 (03-27-23)
+-
+-Added a crude player sprite and an even cruder background
+
+-Gameplay has been changed up to be more SHMUP style so you know have free movement and now instead of collecting energy, you shoot energy! Your shadow embiggens organically so you need to blast the neutrinos that are chipping away at your shadow.
 
 v0.2.1 (03-26-23)
 -
@@ -31,4 +37,4 @@ I also need to make a title screen that says how to play!
 
 [Screenshots](/screenshots)
 =
-![Alt text](/screenshots/v0-2-1_1.png?raw=true "Gameplay")
+![Alt text](/screenshots/v0-3-0_1.png?raw=true "Gameplay")
