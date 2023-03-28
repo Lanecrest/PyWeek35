@@ -8,7 +8,7 @@ v0.3.0 (03-27-23)
 -
 -Added a crude player sprite and an even cruder background
 
--Gameplay has been changed up to be more SHMUP style so you know have free movement and now instead of collecting energy, you shoot energy! Your shadow embiggens organically so you need to blast the neutrinos that are chipping away at your shadow.
+-Gameplay has been changed up to be more SHMUP (shoot'em up) style so you know have free movement and now instead of collecting energy, you shoot energy! Your shadow embiggens organically so you need to blast the neutrinos that are chipping away at your shadow.
 
 v0.2.1 (03-26-23)
 -
