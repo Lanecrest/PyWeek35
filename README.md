@@ -37,4 +37,4 @@ I also need to make a title screen that says how to play!
 
 [Screenshots](/screenshots)
 =
-![Alt text](/screenshots/v0-3-0_1.png?raw=true "Gameplay")
+![Alt text](/screenshots/v0-4-0_1.png?raw=true "Gameplay")
