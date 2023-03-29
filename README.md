@@ -10,7 +10,9 @@ v0.4.0 (03-28-23)
 
 -Implemented a title screen
 
--Optimized some code in some places, updated readme/license
+-Optimized some code in some places
+
+-Updated readme/license
 
 -Added some sound effects using stock Arcade sounds
 
