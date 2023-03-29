@@ -1,8 +1,20 @@
 # Gameplay
-Your shadow is embiggening! Let it grow to a cromulent size. The universe has sent neutrinos to try to blast your shadow for getting out of control. Use your special energy gun to blast them away so your shadow can continue to embiggen!
+Embiggen your shadow to a cromulent size. Shadow barriers will hurt your shadow if they come in contact so blast them away! Blasting them away will also embiggen your shadow. Don't lose your shadow or time out! Win by making your shadow huge.
 
 Changelog
 =
+
+v0.4.0 (03-28-23)
+-
+-Scoring changed to hitting shadows barriers with your energy blasts makes your shadow bigger, shadow getting hit makes it smaller.
+
+-Implemented a title screen
+
+-Optimized some code in some places
+
+-Added some sound effects using stock Arcade sounds
+
+-Gameplay has been changed up to be more SHMUP (shoot'em up) style so you know have free movement and now instead of collecting energy, you shoot energy! Your shadow embiggens organically so you need to blast the neutrinos that are chipping away at your shadow.
 
 v0.3.0 (03-27-23)
 -
