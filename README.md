@@ -1,5 +1,5 @@
 # Gameplay
-Embiggen your shadow to a cromulent size. Shadow barriers will hurt your shadow if they come in contact so blast them away! Blasting them away will also embiggen your shadow. Don't lose your shadow or time out! Win by making your shadow huge.
+Embiggen your shadow to a cromulent size. This game plays like a SHMUP (shoot'em up). Shadow barriers will hurt your shadow if they come in contact so blast them away! Blasting them away will also embiggen your shadow. Don't lose your shadow or time out! Win by making your shadow huge.
 
 Changelog
 =
