@@ -213,7 +213,7 @@ class GamePlay(arcade.Window):
     def title_screen(self):
         arcade.set_background_color(arcade.color.BLACK)
         arcade.draw_text('Shadow Embiggener', 0, screen_height / 2 + 40, arcade.color.WHITE, 40, screen_width, 'center', font_name=('calibri', 'arial'))
-        arcade.draw_text('Move with WSAD or Arrow keys. Space to shoot.\nDestroy the incoming barriers to grow your shadow.\nIf your shadow gets hit, it shrinks.\nDon\'t let it disappear!\nPress any key to start', 0, screen_height / 2, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
+        arcade.draw_text('Move with WSAD or Arrow keys. Space to shoot.\nDestroy the incoming barriers to avoid getting hit.\nIf your shadow gets hit, it shrinks. Don\'t let it disappear!\nCollect blue powerups to grow your shadow to the size of the screen!', 0, screen_height / 2, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
         arcade.draw_text('Press "Enter" to start', 0, screen_height / 2 - 100, arcade.color.WHITE, 20, screen_width, 'center', font_name=('calibri', 'arial'))
         
     def end_screen(self):
