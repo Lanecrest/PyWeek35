@@ -50,7 +50,7 @@ v0.1.0 (03-26-23)
 
 Road Map
 =
-As the challenge makes it to the half way point, the biggest obstacle left is hit detection improvement.
+As the challenge makes it to the half way point, the biggest obstacle left is hit detection improvement. As this is developed for PyWeek 35 challenge there are no immediate plans to develop this project after the one week challenge has concluded.
 
 
 [Screenshots](/screenshots)
