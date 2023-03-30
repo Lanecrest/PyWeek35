@@ -2,7 +2,7 @@ import arcade, random, math
 
 screen_width = 640
 screen_height = 480
-game_title = 'Shadow Embiggener v0.4.0'
+game_title = 'Shadow Embiggener v0.5.0'
 
 class Player(arcade.Sprite):
     def __init__(self):
@@ -44,10 +44,10 @@ class Shadow(arcade.Sprite):
         self.center_y = self.player.center_y + self.offset_y    # y position is tied to player y position
         self.height = (32 * self.scale) + (self.player.center_y * 0.25)  # increase height based on y position
         self.scale = 2.2 + self.adjust_scale
-        if self.alpha <= 200:
-            self.alpha = 200 - self.center_y * 0.4  # decrease opacity based on y position
+        if self.alpha <= 225:
+            self.alpha = 225 - self.center_y * 0.4  # decrease opacity based on y position
         else:
-            self.alpha = 200
+            self.alpha = 225
   
 class Barrier(arcade.Sprite):
     def __init__(self, shadow):
@@ -63,11 +63,26 @@ class Barrier(arcade.Sprite):
         # set respawn logic
         if self.right < 0:
             self.set_position(screen_width, random.randint(int(0 + self.height), int(screen_height - self.height)))
-        if self.alpha <= 255:
-            self.alpha = 255 - self.center_y * 0.4  # decrease opacity based on y position
+        if self.alpha <= 225:
+            self.alpha = 225 - self.center_y * 0.4  # decrease opacity based on y position
         else:
-            self.alpha = 255
-        
+            self.alpha = 225
+            
+class Power(arcade.Sprite):
+    def __init__(self, player):
+        super().__init__('sprites/power.png')
+        self.player = player
+        # set initial values
+        self.move_speed = -2.5
+        self.z = player.z
+        self.scale = 0.6
+
+    def update(self):
+        self.center_x += self.move_speed
+        # set respawn logic
+        if self.right < 0:
+            self.set_position(screen_width, random.randint(int(0 + self.height), int(screen_height - self.height)))
+   
 class Energy(arcade.Sprite):
     def __init__(self, player):
         super().__init__('sprites/energy.png')
@@ -104,16 +119,19 @@ class GamePlay(arcade.Window):
         self.energy_sound = arcade.load_sound(':resources:sounds/laser1.wav')
         self.shadow_hit_sound = arcade.load_sound(':resources:sounds/hurt1.wav')
         self.barrier_hit_sound = arcade.load_sound(':resources:sounds/hurt4.wav')
+        self.power_hit_sound = arcade.load_sound(':resources:sounds/upgrade3.wav')
         self.game_on = False
         self.setup_game()   # call the setup/new game function
         
     def setup_game(self):
         self.game_over = False
-        self.time = 200
+        self.timer = 0
+        self.hit_count = 0
         self.player = Player()
         self.energy_list = arcade.SpriteList()
         self.shadow = Shadow(self.player)
         self.barrier = Barrier(self.shadow)
+        self.power = Power(self.player)
         
     def on_draw(self):
         arcade.start_render()
@@ -123,18 +141,18 @@ class GamePlay(arcade.Window):
             self.end_screen()   # show end screen on win/loss
         else:
             if not self.bg_music_player or not self.bg_music_player.playing:
-                self.bg_music_player = arcade.play_sound(self.bg_music, .1)
+                self.bg_music_player = arcade.play_sound(self.bg_music, .2)
             # set two copies of the background texture for seamless scrolling
             arcade.draw_texture_rectangle(screen_width / 2 + self.background_pos, screen_height / 2, screen_width, screen_height, self.background)
             arcade.draw_texture_rectangle(screen_width / 2 + self.background_pos + screen_width, screen_height / 2, screen_width, screen_height, self.background)
             # set display text on game screen
-            arcade.draw_text(f'Time: {int(self.time)}', 10, screen_height - 20, arcade.color.BLACK, 14)
-            arcade.draw_text(f'Embiggen %: {round((self.shadow.width / screen_width) * 100)}', 10, screen_height - 40, arcade.color.BLACK, 14)
+            arcade.draw_text(f'Embiggen %: {round((self.shadow.width / screen_width) * 100) - 1}', 10, screen_height - 20, arcade.color.BLACK, 14)
             # draw the game elements
-            self.barrier.draw()
-            self.shadow.draw()
-            self.player.draw()
             self.energy_list.draw()
+            self.shadow.draw()
+            self.barrier.draw()
+            self.power.draw()
+            self.player.draw()
 
     def update(self, delta_time):
         self.background_pos -= 2
@@ -144,22 +162,27 @@ class GamePlay(arcade.Window):
             self.background_pos = self.background_pos % screen_width
         # only update game elements if not in a game_over status
         if not self.game_over:
+            self.timer += 1 / 30 # timer
             self.player.update()
             self.energy_list.update()
             self.shadow.update()
             self.barrier.update()
-            self.time -= 1 / 30
+            self.power.update()
         # check for collisions
         if arcade.check_for_collision(self.shadow, self.barrier):
-            arcade.play_sound(self.shadow_hit_sound, 1.5)
+            arcade.play_sound(self.shadow_hit_sound)
             self.shadow.adjust_scale -= 1
+            self.hit_count += 1
             self.barrier.set_position(screen_width, random.randint(int(0 + self.barrier.height), int(screen_height - self.barrier.height)))
+        if arcade.check_for_collision(self.player, self.power):
+            arcade.play_sound(self.power_hit_sound)
+            self.shadow.adjust_scale += 0.75
+            self.power.set_position(screen_width, random.randint(int(0 + self.power.height), int(screen_height - self.power.height)))  
         if arcade.check_for_collision_with_list(self.barrier, self.energy_list):
             arcade.play_sound(self.barrier_hit_sound)
-            self.shadow.adjust_scale += 0.75
             self.barrier.set_position(screen_width, random.randint(int(0 + self.barrier.height), int(screen_height - self.barrier.height)))
         # check for game_over
-        if self.shadow.scale <= 0 or self.shadow.width > screen_width or self.time <= 0:
+        if self.shadow.scale <= 0 or self.shadow.width >= screen_width:
             self.game_over = True
 
     def on_key_press(self, key, modifiers):
@@ -190,26 +213,29 @@ class GamePlay(arcade.Window):
     def title_screen(self):
         arcade.set_background_color(arcade.color.BLACK)
         arcade.draw_text('Shadow Embiggener', 0, screen_height / 2 + 40, arcade.color.WHITE, 40, screen_width, 'center', font_name=('calibri', 'arial'))
-        arcade.draw_text('Move with WSAD or Arrow keys. Space to shoot.\nDestroy the incoming barriers to grow your shadow.\nIf your shadow gets hit, it shrinks.\nDon\'t let it disappear!\nPress any key to start', 0, screen_height / 2, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
+        arcade.draw_text('Move with WSAD or Arrow keys. Space to shoot.\nDestroy the incoming barriers to avoid getting hit.\nIf your shadow gets hit, it shrinks. Don\'t let it disappear!\nCollect blue powerups to grow your shadow to the size of the screen!', 0, screen_height / 2, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
         arcade.draw_text('Press "Enter" to start', 0, screen_height / 2 - 100, arcade.color.WHITE, 20, screen_width, 'center', font_name=('calibri', 'arial'))
         
     def end_screen(self):
+        max_score = 1000
+        time_penalty = 3600
+        time = self.timer
+        hit_penalty = 1800
+        hit_count = self.hit_count
+        score = max_score * (1 - (time / (time_penalty * 2)) - (hit_count / hit_penalty))
+        if score <= 0:
+            score = 0
         arcade.set_background_color(arcade.color.BLACK)
-        # time limit loss
-        if self.time <= 0:
-            arcade.draw_text('GAME OVER', 0, screen_height // 2, arcade.color.WHITE, 40, screen_width, 'center', font_name=('calibri', 'arial'))
-            arcade.draw_text('Your shadow has to go now, its planet needs it', 0, screen_height // 2 - 40, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
-            arcade.draw_text('Press "Enter" to restart', 0, screen_height // 2 - 80, arcade.color.WHITE, 20, screen_width, 'center', font_name=('calibri', 'arial'))
-        # shadow loss
-        elif self.shadow.scale <= 0:
+        # loss
+        if self.shadow.scale <= 0:
             arcade.draw_text('GAME OVER', 0, screen_height // 2, arcade.color.WHITE, 40, screen_width, 'center', font_name=('calibri', 'arial'))
             arcade.draw_text('The goggles do nothing!', 0, screen_height // 2 - 40, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
             arcade.draw_text('Press "Enter" to restart', 0, screen_height // 2 - 80, arcade.color.WHITE, 20, screen_width, 'center', font_name=('calibri', 'arial'))
-        # shadow win
+        # win
         elif self.shadow.width >= screen_width:
             arcade.draw_text('YOU WIN', 0, screen_height // 2, arcade.color.WHITE, 40, screen_width, 'center', font_name=('calibri', 'arial'))
             arcade.draw_text(f'You have cromulently embiggened your shadow!', 0, screen_height // 2 - 40, arcade.color.WHITE, 10, screen_width, 'center', font_name=('calibri', 'arial'))
-            arcade.draw_text(f'Your Score: {int(self.time)}\nPress "Enter" to restart', 0, screen_height // 2 - 80, arcade.color.WHITE, 20, screen_width, 'center', font_name=('calibri', 'arial'))
+            arcade.draw_text(f'Your Score: {int(score)}\nPress "Enter" to restart', 0, screen_height // 2 - 80, arcade.color.WHITE, 20, screen_width, 'center', font_name=('calibri', 'arial'))
 
 def main():
     game = GamePlay(screen_width, screen_height, game_title)

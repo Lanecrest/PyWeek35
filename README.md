@@ -1,8 +1,16 @@
 # Gameplay
-Embiggen your shadow to a cromulent size. This game plays like a SHMUP (shoot'em up). Shadow barriers will hurt your shadow if they come in contact so blast them away! Blasting them away will also embiggen your shadow. Don't lose your shadow or time out! Win by making your shadow huge.
+Embiggen your shadow to a cromulent size. This game plays like a SHMUP (shoot'em up). Shadow barriers will hurt your shadow if they come in contact so blast them away! If you lose your shadow, you lose the game! Collect power ups to embiggen your shadow. You win when you embiggen to 100%
 
 Changelog
 =
+
+v0.5.0 (03-29-23)
+-
+-Re-added power ups which embiggen your shadow
+
+-Removed time limit and time loss, now scoring is based on how long you take to embiggen to 100% and how many times your shadow gets hit.
+
+-Changed background sprite. All sprites and sounds are probably final at this point
 
 v0.4.0 (03-28-23)
 -
@@ -51,4 +59,4 @@ I also need to make a title screen that says how to play!
 
 [Screenshots](/screenshots)
 =
-![Alt text](/screenshots/v0-4-0_1.png?raw=true "Gameplay")
+![Alt text](/screenshots/v0-5-0_1.png?raw=true "Gameplay")
