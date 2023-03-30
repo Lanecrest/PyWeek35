@@ -4,7 +4,7 @@ Lanecrest Tech
 Artwork by:
 Lanecrest Tech
 
-Sound used are stock files included in the Arcade library
+Sounds used are stock files included in the Arcade library
 
 How to run/play:
 1) View 'requirements.txt' for any needed modules/libraries
@@ -14,3 +14,4 @@ How to run/play:
 
 Licence:
 MIT License
+Copyright (c) 2023 Lanecrest Tech
