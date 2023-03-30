@@ -62,4 +62,4 @@ Credits
 =
 Programmed by Lanecrest Tech © 2023
 
-This program is free software released under the MIT License and is submitted as a PyWeek challenge in acccordance with their [rules](https://pyweek.readthedocs.io/en/latest/rules.html)
+This program is free software released under the MIT License and is submitted as a PyWeek challenge in acccordance with their [rules](https://pyweek.readthedocs.io/en/latest/rules.html).
