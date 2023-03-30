@@ -50,13 +50,16 @@ v0.1.0 (03-26-23)
 
 Road Map
 =
-Core gameplay functionality is implemented. Next up I want to make a proper sprite for the player/shadow (the radition energy and shadow rays will probably just stay cube-like objects).
-
-After that, I want to make the controls a bit tighter, maybe make jumping be linked to how long you hold space, or improve collision a bit.
-
-I also need to make a title screen that says how to play!
+As the challenge makes it to the half way point, the biggest obstacle left is hit detection improvement.
 
 
 [Screenshots](/screenshots)
 =
 ![Alt text](/screenshots/v0-5-0_1.png?raw=true "Gameplay")
+
+
+Credits
+=
+Programmed by Lanecrest Tech © 2023
+
+This program is free software released under the MIT License and is submitted as a PyWeek challenge in acccordance with their [rules](https://pyweek.readthedocs.io/en/latest/rules.html)
