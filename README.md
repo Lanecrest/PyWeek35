@@ -77,6 +77,7 @@ Credits
 Lanecrest Tech © 2023
 
 Programming and Artwork by Lanecrest Tech
+
 Sounds/Music used are included resources from the Arcade library
 
 This program is free software released under the MIT License and is submitted as a PyWeek 35 challenge entry in acccordance with their [rules](https://pyweek.readthedocs.io/en/latest/rules.html).
