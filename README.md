@@ -75,6 +75,7 @@ This game was created for PyWeek 35 which occured from March 26th to April 1st. 
 Credits
 =
 Lanecrest Tech © 2023
+
 Programming and Artwork by Lanecrest Tech
 Sounds/Music used are included resources from the Arcade library
 
