@@ -21,6 +21,8 @@ v0.6.0 (04-01-23)
 
 -Updated victory screen to show how many times you were hit and how long you took, in addition to the final score.
 
+-Added Python version check (requires 3.7 or higher)
+
 v0.5.0 (03-29-23)
 -
 -Re-added power ups which embiggen your shadow
