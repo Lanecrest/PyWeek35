@@ -1,8 +1,19 @@
 # Gameplay
-Embiggen your shadow to a cromulent size. This game plays like a SHMUP (shoot'em up). Shadow barriers will hurt your shadow if they come in contact so blast them away! If you lose your shadow, you lose the game! Collect power ups to embiggen your shadow. You win when you embiggen to 100%
+Embiggen your shadow to a cromulent size! This game plays like a SHMUP (shoot'em up). Shadow barriers will hurt your shadow if they come in contact so blast them away! You win when you embiggen to 100%. Collect power ups to embiggen and if your shadow is hit by too many barriers, you lose!
 
 Changelog
 =
+v0.6.0 (04-01-23)
+-
+-Power ups now only travel to the center of the screen and will fade away if not collected in time.
+
+-Energy blasts now despawn when hitting a barrier
+
+-Fixed a bug where game activity would happen behind the title screen
+
+-Changed shadow scaling behavior to make hit detection more accurate (is still not as perfect as hoped)
+
+-Updated victory screen to show how many times you were hit and how long you took, in addition to the final score.
 
 v0.5.0 (03-29-23)
 -
@@ -50,7 +61,7 @@ v0.1.0 (03-26-23)
 
 Road Map
 =
-As the challenge makes it to the half way point, the biggest obstacle left is hit detection improvement. As this is developed for PyWeek 35 challenge there are no immediate plans to develop this project after the one week challenge has concluded.
+This game was created for PyWeek 35 which occured from March 26th to April 1st. As the challenge draws to an end, there are currently no plans to develop the game further as of this time.
 
 
 [Screenshots](/screenshots)
