@@ -1,4 +1,11 @@
-import arcade, random, math
+import arcade, random, math, sys
+
+# check python version requirement
+min_ver = (3, 7)
+if sys.version_info[:2] < min_ver:
+    sys.exit(
+        "This game requires Python {}.{}.".format(*min_ver)
+    )
 
 screen_width = 640
 screen_height = 480
