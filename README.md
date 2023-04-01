@@ -4,6 +4,7 @@ Embiggen your shadow to a cromulent size! This game plays like a SHMUP (shoot'em
 
 About
 =
+This game uses the Arcade library and has only been tested in Windows but should be cross-platform. The keyboard is the only input device needed, using the arrow or WSAD keys to move and space to shoot. There are some Simpsons references sprinkled about, if the title wasn't already a give away :)
 
 [Screenshots](/screenshots)
 =
@@ -18,7 +19,7 @@ About
 
 Road Map
 =
-This game was created for PyWeek 35 which occured from March 26th to April 1st. As the challenge draws to an end, there are currently no plans to develop the game further as of this time.
+This game was created for [PyWeek](https://pyweek.org/) 35 which occured from March 26th to April 1st. As the challenge draws to an end, there are currently no plans to develop the game further as of this time.
 
 
 Credits
