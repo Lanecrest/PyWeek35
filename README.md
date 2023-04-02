@@ -8,7 +8,7 @@ This game uses the Arcade library and has only been tested in Windows but should
 
 [Screenshots](/screenshots)
 =
-![Alt text](/screenshots/v0-5-0_1.png?raw=true "Gameplay")
+![Alt text](/screenshots/v0-6-0_1.png?raw=true "Gameplay")
 
 
 [Change Log](CHANGELOG.md)
