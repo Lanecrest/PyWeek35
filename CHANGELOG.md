@@ -14,6 +14,8 @@ v0.6.0 (04-01-23)
 
 -Added Python version check (requires 3.7 or higher)
 
+-Final update prior to PyWeek 35 submission
+
 v0.5.0 (03-29-23)
 -
 -Re-added power ups which embiggen your shadow
