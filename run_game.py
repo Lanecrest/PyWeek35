@@ -9,7 +9,7 @@ if sys.version_info[:2] < min_ver:
 
 screen_width = 640
 screen_height = 480
-game_title = 'Shadow Embiggener v0.5.0'
+game_title = 'Shadow Embiggener v0.6.0'
 
 class Player(arcade.Sprite):
     def __init__(self):
